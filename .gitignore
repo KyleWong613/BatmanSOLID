@@ -1,0 +1,9 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/BatmanSOLID/FileContentIndex
+/.vs/BatmanSOLID/v17
+/Batman SOLID/obj
+/.vs
+/Batman SOLID/bin/Debug/net6.0

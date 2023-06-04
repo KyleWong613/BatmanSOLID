@@ -6,8 +6,5 @@ namespace Batman_SOLID
         public string animal { get; set; }
 
 
-
-
-
     }
 }

@@ -19,14 +19,7 @@ namespace Batman_SOLID.Controllers
     public class SolidPostController : ControllerBase
     {
         private readonly ILogger<SolidPostController> _logger;
-
-        private static readonly string[] Summaries = new[]
-        {
-            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-        };
-
         public SolidPost[] solidpost { get; private set; }
-
         public SolidPostController(ILogger<SolidPostController> logger)
         {
             _logger = logger;
@@ -39,11 +32,17 @@ namespace Batman_SOLID.Controllers
         {
             string solidtype = inputPara.type.ToLower();
             string solid = "";
-            int solidpost = 0;
+            string solidpost = "";
+            int i = 1;
             switch (solidtype)
             {
                 case "s":
                     solid = "single responsibility principle";
+                    string res = "Responsibility "; 
+                    solidpost = res + "1: " + StudentRegister() + " " + 
+                                res + "2: " + StudentEmails() + " " + 
+                                res + "3: " + StudentResult();
+
                     break;
                 case "o":
                     solid = "open-closed principle";
@@ -63,77 +62,20 @@ namespace Batman_SOLID.Controllers
             return Ok(new {Principle = solid, SOLID = solidpost });
         }
 
-
-        //now let's see a class that is definitely not following the Single-responsibility principle
-        //Batman should only fighting bad guys. and bad guys only.
-        //He should not be doing other things.
-
-        public class BatmanBreakingSController
+        private string StudentRegister()
         {
-            public void BeatBadGuys()
-            {
-                try
-                {
-                    StartBattleWithBadGuy();
-                }
-                catch (Exception ex)
-                {
-                    //Here Batman is tryign to find other people, calling them,
-                    //waiting for them
-                    //doing so many things. not cool at all.
-                    Console.WriteLine("Find out Other Members Of Justice League");
-                    Console.WriteLine("Find out who amongst these super heroes can fight the villain");
-                    Console.WriteLine("Wait for them to takeover the villain battle");
-                    Console.WriteLine(ex.ToString());
-                }
-            }
-
-            private void StartBattleWithBadGuy()
-            {
-                Console.WriteLine("Battle with Bad Guy Started");
-            }
+            return "Student Registered";
         }
-
-        //Here is Batman again, making proper usage of S in SOLID Principles
-        //Batman focuses on fighting bad guys. Just like before.
-        public class BatmanBeingCool
-        {
-            JusticeLeagueEmergencySignal justiceLeagueEmergencySignal = new JusticeLeagueEmergencySignal();
-            public void BeatBadGuys()
-            {
-                try
-                {
-                    StartBattleWithBadGuy();
-                }
-                catch (Exception ex)
-                {
-                    //Batman no longer has to do the many steps required to call for help
-                    //Also, Batman just sends signal for help
-                    //He need worry how the signal sending works and who will process it 
-                    //and so on and so forth.
-                    justiceLeagueEmergencySignal.SendSignalForHelp(ex);
-                }
-            }
-
-            private void StartBattleWithBadGuy()
-            {
-                Console.WriteLine("Battle with Bad Guy Started");
-            }
+         
+        private string StudentResult()
+        { 
+            return "Student Result Calculated";
         }
-
-        public class JusticeLeagueEmergencySignal
-        {
-            //Batman signal reaches this function and it takes care of everything
-            //Also, other super heroes can use it too.
-            internal void SendSignalForHelp(Exception ex)
-            {
-                Console.WriteLine("Find out Other Members Of Justice League");
-                Console.WriteLine("Find out who amongst these super heroes can fight the villain");
-                Console.WriteLine("Wait for them to takeover the villain battle");
-                Console.WriteLine(ex.ToString());
-            }
-        }
-
+        private string StudentEmails()
+        { 
+            return "Send Email to Student";
+            
+        } 
     }
 
 }

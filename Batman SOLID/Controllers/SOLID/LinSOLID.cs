@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Batman_SOLID.Controllers
+namespace Batman_SOLID.Controllers.SOLID
 {
     internal class LinSOLID
     {

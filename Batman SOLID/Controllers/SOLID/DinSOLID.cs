@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Components.Routing;
- using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,7 +18,7 @@ using System.Threading.Tasks;
 //BY FAR THE MOST COMPLEX SOLID PATTERN
 //THIS HAS LONG TERM RAMIFICATIONS FOR YOU C SHARP LEARNING. OR ANY LEARNING ANY OBJECT ORIENTED CODING
 
-namespace Batman_SOLID.Controllers
+namespace Batman_SOLID.Controllers.SOLID
 {
     internal class DinSOLID
     {
@@ -170,7 +170,7 @@ namespace Batman_SOLID.Controllers
         //we supply the implementation class during object creation
         public BatmanBeingBatman(IisHelping helping)
         {
-            this.helpFromBatCave = helping;
+            helpFromBatCave = helping;
         }
 
         public void FightCrime()
@@ -207,4 +207,4 @@ namespace Batman_SOLID.Controllers
         }
     }
 
-} 
+}

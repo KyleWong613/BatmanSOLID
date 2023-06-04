@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 //For example, Batman should focus on fighting and fighting only, especially when he has encountered a villain
 //In the middle of a battle Batman should not be (Or, he may not have the time), messing around with sorting algorithms and phone calls to find out which super hero is available to help.
 
-namespace Batman_SOLID.Controllers
+namespace Batman_SOLID.Controllers.SOLID
 {
     public class SinSOLID
     {

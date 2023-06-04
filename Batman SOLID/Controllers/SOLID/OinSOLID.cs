@@ -17,7 +17,7 @@ using System.Threading.Tasks;
 
 //https://en.wikipedia.org/wiki/Open%E2%80%93closed_principle
 
-namespace Batman_SOLID.Controllers
+namespace Batman_SOLID.Controllers.SOLID
 {
     public class OinSOLID
     {

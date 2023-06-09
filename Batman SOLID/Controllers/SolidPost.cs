@@ -61,12 +61,27 @@ namespace Batman_SOLID.Controllers
 
                 case "l":
                     solid = "Liskov substitution principle";
+                    string apple = "";
+                    string orange = "";
+                    IFruit fruit = new Orange();
+                    orange = "Color of Orange: " + fruit.GetColor();
+                    fruit = new Apple();
+                    apple = "Color of Apple: " + fruit.GetColor();
+
+                    Console.ReadKey();
+                    solidpost = apple + orange;
                     break;
                 case "i":
                     solid = "interface segregation principle";
+
+
+
                     break;
                 case "d":
                     solid = "dependency inversion principle";
+
+
+
                     break;
                 default:
                     break;
@@ -117,7 +132,6 @@ namespace Batman_SOLID.Controllers
                 return totalSalaries;
             }
         }
-
         public class JuniorDevSalaryCalculator : BaseSalaryCalculator
         {
             public JuniorDevSalaryCalculator(DeveloperReport developerReport)
@@ -133,6 +147,27 @@ namespace Batman_SOLID.Controllers
             {
             }
             public override double CalculateSalary() => DeveloperReport.HourlyRate * DeveloperReport.WorkingHours * 1.2;
+        }
+
+        //Liskov substitution
+
+        public interface IFruit
+        {
+            string GetColor();
+        }
+        public class Apple : IFruit
+        {
+            public string GetColor()
+            {
+                return "Red";
+            }
+        }
+        public class Orange : IFruit
+        {
+            public string GetColor()
+            {
+                return "Orange";
+            }
         }
     }
 

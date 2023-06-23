@@ -74,8 +74,24 @@ namespace Batman_SOLID.Controllers
                     break;
                 case "i":
                     solid = "interface segregation principle";
+                    //Human
+                    IWorkable work = new HumanWorker();
+                    IEatable eat = new HumanWorker();
+                    ISleepable sleep = new HumanWorker();
+                    //Robot
+                    IWorkable rwork = new RobotWorker();
+                    //Below two returns error as RObot Class do not implement Interface Eat and Sleep
+                    //IEatable reat = new RobotWorker();
+                    //ISleepable rsleep = new RobotWorker();
 
+                    string human = "Human Says: ";
+                    string robot = "Robot Says: ";
 
+                    human = human + work.Work() + eat.Eat() + sleep.Sleep();
+                    robot = robot + rwork.Work();
+                    // reat.Eat() + rsleep.Sleep();
+
+                    solidpost = human + "\\n" + robot;
 
                     break;
                 case "d":
@@ -168,6 +184,50 @@ namespace Batman_SOLID.Controllers
             public string GetColor()
             {
                 return "Orange";
+            }
+        }
+
+        //Interface Segregation
+        public interface IWorkable
+        {
+            string Work();
+        }
+        public interface IEatable
+        {
+            string Eat();
+        }
+
+        public interface ISleepable
+        {
+            string Sleep();
+        }
+
+        public class HumanWorker : IWorkable, IEatable, ISleepable
+        {
+            public string Work() {
+                return "I can work ";
+            }
+            public string Eat() { 
+                return "I can Eat "; 
+            }
+            public string Sleep() {
+                return "I can Sleep ";
+            }
+        }
+
+        public class RobotWorker : IWorkable
+        {
+            public string Work()
+            {
+                return "I can only work ";
+            }
+            public string Eat()
+            {
+                return "I can Eat";
+            }
+            public string Sleep()
+            {
+                return "I can Sleep";
             }
         }
 
